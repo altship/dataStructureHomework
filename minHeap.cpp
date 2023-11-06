@@ -26,7 +26,7 @@ typedef struct minHeap{
         length = 0;
     }
 
-    //Maintain the heap, make sure the top is smallest
+    //Maintain the heap, make sure the i position smaller than its children
     void min_heapify(int i){
         int left = LEFT(i), right = RIGHT(i), smallest = i;
         if (left <= length && data[left] < data[smallest])
@@ -75,8 +75,14 @@ int main() {
     heap.create();
     for (int i = 64; i >= 1; i--)
         heap.insert(i);
+    int i = 0;
     while (!heap.isEmpty()){
-        printf("%d \n", heap.pop_min());
+        if(i == 10){
+            printf("\n");
+            i = 0;
+        }
+        printf("%d ", heap.pop_min());
+        i++;
     }
     return 0;
 }
