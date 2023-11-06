@@ -217,54 +217,54 @@ typedef struct Partitioning_Simulator{
     }
 }partition;
 
-int main(){
-    partition ps;
-    ps.initializing();
-    task *head = ps.task_head;
-    grid *g = ps.grid_head;
-    int x = 0;
-    int y = 0;
-    int in_time[10]{0, 2, 10 ,50 ,100, 500, 700, 750, 900, 950};
-    int id_in[10]{2, 1, 4, 9, 8, 3, 6, 5, 7, 10};
-    int space[10]{500, 10, 50, 70, 200, 511, 800, 20, 60, 1};
-    int out_time[10]{50, 100, 200, 300, 400, 800, 850, 950, 960, 970};
-    int id_out[10]{2, 1, 4, 9, 8, 3, 6, 5, 7, 10};
-    for(int i = 0; i < 1024; i++){
-        if(in_time[x] == i){
-            ps.create_task(id_in[x], space[x]);
-            x++;
-            head = ps.task_head;
-            g = ps.grid_head;
-            printf("In Action\n");
-            while(head != NULL){
-                printf("The id: %d, address: %d, space occupied: %d\n", head -> id, head -> task_address, head -> space_occupied);
-                head = head -> next;
-            }
-            do{
-                printf("The front address: %d, space: %d\n", g -> front_address, g -> space);
-                g = g -> next;
-            }while(g != ps.grid_head);
-            printf("\n");
-        }
-        if(out_time[y] == i){
-            ps.end_task(id_out[y]);
-            y++;
-            head = ps.task_head;
-            g = ps.grid_head;
-            printf("Out Action\n");
-            while(head != NULL){
-                printf("The id: %d, address: %d, space occupied: %d\n", head -> id, head -> task_address, head -> space_occupied);
-                head = head -> next;
-            }
-            do{
-                printf("The front address: %d, space: %d\n", g -> front_address, g -> space);
-                g = g -> next;
-            }while(g != ps.grid_head);
-            printf("\n");
-        }
-    }
-    ps.destory();
-    return 0;
-}
+//int main(){
+//    partition ps;
+//    ps.initializing();
+//    task *head = ps.task_head;
+//    grid *g = ps.grid_head;
+//    int x = 0;
+//    int y = 0;
+//    int in_time[10]{0, 2, 10 ,50 ,100, 500, 700, 750, 900, 950};
+//    int id_in[10]{2, 1, 4, 9, 8, 3, 6, 5, 7, 10};
+//    int space[10]{500, 10, 50, 70, 200, 511, 800, 20, 60, 1};
+//    int out_time[10]{50, 100, 200, 300, 400, 800, 850, 950, 960, 970};
+//    int id_out[10]{2, 1, 4, 9, 8, 3, 6, 5, 7, 10};
+//    for(int i = 0; i < 1024; i++){
+//        if(in_time[x] == i){
+//            ps.create_task(id_in[x], space[x]);
+//            x++;
+//            head = ps.task_head;
+//            g = ps.grid_head;
+//            printf("In Action\n");
+//            while(head != NULL){
+//                printf("The id: %d, address: %d, space occupied: %d\n", head -> id, head -> task_address, head -> space_occupied);
+//                head = head -> next;
+//            }
+//            do{
+//                printf("The front address: %d, space: %d\n", g -> front_address, g -> space);
+//                g = g -> next;
+//            }while(g != ps.grid_head);
+//            printf("\n");
+//        }
+//        if(out_time[y] == i){
+//            ps.end_task(id_out[y]);
+//            y++;
+//            head = ps.task_head;
+//            g = ps.grid_head;
+//            printf("Out Action\n");
+//            while(head != NULL){
+//                printf("The id: %d, address: %d, space occupied: %d\n", head -> id, head -> task_address, head -> space_occupied);
+//                head = head -> next;
+//            }
+//            do{
+//                printf("The front address: %d, space: %d\n", g -> front_address, g -> space);
+//                g = g -> next;
+//            }while(g != ps.grid_head);
+//            printf("\n");
+//        }
+//    }
+//    ps.destory();
+//    return 0;
+//}
 
 //
