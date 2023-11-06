@@ -175,13 +175,13 @@ typedef struct AVL_tree{
     }
 }avltree;
 
-//int main(){
-//    int a[] = {3, 10, 17, 27, 7, 23, 12, 36, 38, 45, 44};
-//    avltree tree;
-//    tree.create(12);
-//    for(auto i : a){
-//        tree.push(i);
-//    }
-//    tree.destory();
-//    return 0;
-//}
+int main(){
+    int a[] = {3, 10, 17, 27, 7, 23, 12, 36, 38, 45, 44};
+    avltree tree;
+    tree.create(12);
+    for(auto i : a){
+        tree.push(i);
+    }
+    tree.destory();
+    return 0;
+}
