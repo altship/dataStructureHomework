@@ -14,10 +14,11 @@ typedef struct inPlaceSort{
         size = n;
     }
 
+    //Swap two elements, make sure the swap only called after the variable data is initialized.
     void swap(DATA* a, DATA* b){
-        DATA t = *a;
+        data[0]= *a;
         *a = *b;
-        *b = t;
+        *b = data[0];
     }
 
     //Maintain the heap, make sure the i position smaller than its children
