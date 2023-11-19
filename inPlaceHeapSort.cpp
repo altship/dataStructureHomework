@@ -14,7 +14,7 @@ typedef struct inPlaceSort{
         size = n;
     }
 
-    //Swap two elements, make sure the swap only called after the variable data is initialized.
+    //Swap two elements, make sure the swap is only called after the variable "data" is initialized.
     void swap(DATA* a, DATA* b){
         data[0]= *a;
         *a = *b;
