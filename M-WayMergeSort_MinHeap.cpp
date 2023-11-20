@@ -74,37 +74,25 @@ typedef struct M_WaySort{
 }sort;
 
 int main(){
-    int* input[2];
-    int input1[11];
-    int input2[11];
-    for(int j = 0; j < 10; ++j){
-        input1[j] = rand() % 10000;
+    int* input[10];
+    for(int i = 0; i < 10; i++){
+        input[i] = (int*) malloc(11 * sizeof(int));
+        for(int j = 0; j < 10; j++){
+            input[i][j] = rand() % 100000;
+        }
+        input[i][10] = -inf;
     }
-    input1[10] = -inf;
-    for(int j = 0; j < 10; ++j){
-        input2[j] = rand() % 10000;
-    }
-    input2[10] = -inf;
 
-    std::sort(input1, input1 + 10);
-    std::sort(input2, input2 + 10);
-    for(int j = 0; j < 10; ++j){
-        printf("%d ", input1[j]);
+    for(auto& i : input){
+        std::sort(i, i + 10);
     }
-    printf("\n");
-    for(int j = 0; j < 10; ++j){
-        printf("%d ", input2[j]);
-    }
-    printf("\n");
 
-    input[0] = input1;
-    input[1] = input2;
-    int output[20];
+    int output[100];
     sort c;
-    c.mergeSortByMinHeap((int**)input, 2, output);
-    for(int i = 0; i < 20; ++i){
+    c.mergeSortByMinHeap((int**)input, 10, output);
+    for(int i = 0; i < 100; ++i){
         printf("%d ", output[i]);
-        if((i + 1) % 5 == 0)printf("\n");
+        if((i + 1) % 10 == 0)printf("\n");
     }
     return 0;
 }
