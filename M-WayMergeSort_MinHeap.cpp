@@ -7,6 +7,7 @@
 #define RIGHT(i) ((i << 1) + 1)
 #define inf 0x7fffffff
 
+// Modified from minHeap
 typedef struct M_WaySort{
     DATA** data;
     int size;
@@ -55,7 +56,11 @@ typedef struct M_WaySort{
         return smallest;
     }
 
+    void destroy(){
+        free(data);
+    }
 
+    //Main sort function
     void mergeSortByMinHeap(DATA* input[], int S, DATA* output){
         create(S);
         int i = 1;
@@ -63,13 +68,15 @@ typedef struct M_WaySort{
         for(; i <= size; ++i){
             data[i] = input[i - 1];
         }
-        build_max_heap();
+        build_max_heap();  //initialize the heap
+
         while(size > 0){
             *curr++ = *min();
             data[1]++;
-            if(*data[1] == -inf)pop_min();
+            if(*data[1] == -inf)pop_min();  //When the array is empty, pop this array out of the heap
             else min_heapify(1);
         }
+        destroy();
     }
 }sort;
 
@@ -93,6 +100,9 @@ int main(){
     for(int i = 0; i < 100; ++i){
         printf("%d ", output[i]);
         if((i + 1) % 10 == 0)printf("\n");
+    }
+    for(auto& i : input){
+        free(i);
     }
     return 0;
 }
